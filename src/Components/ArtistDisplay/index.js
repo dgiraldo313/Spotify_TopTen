@@ -44,7 +44,6 @@ const ArtistDisplay = ( props ) => {
 			{
 				context => {
 					const selectedArtist = context.selectedArtist
-					console.log(selectedArtist)
 					return (
 						selectedArtist ?
 							<div>

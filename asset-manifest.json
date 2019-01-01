@@ -1,16 +1,16 @@
 {
   "main.css": "/Spotify_TopTen/static/css/main.2778f77f.chunk.css",
-  "main.js": "/Spotify_TopTen/static/js/main.5504b194.chunk.js",
-  "main.js.map": "/Spotify_TopTen/static/js/main.5504b194.chunk.js.map",
+  "main.js": "/Spotify_TopTen/static/js/main.a484e3d5.chunk.js",
+  "main.js.map": "/Spotify_TopTen/static/js/main.a484e3d5.chunk.js.map",
   "static/css/1.1e02f483.chunk.css": "/Spotify_TopTen/static/css/1.1e02f483.chunk.css",
   "static/js/1.6c44f11b.chunk.js": "/Spotify_TopTen/static/js/1.6c44f11b.chunk.js",
   "static/js/1.6c44f11b.chunk.js.map": "/Spotify_TopTen/static/js/1.6c44f11b.chunk.js.map",
   "runtime~main.js": "/Spotify_TopTen/static/js/runtime~main.0761e72a.js",
   "runtime~main.js.map": "/Spotify_TopTen/static/js/runtime~main.0761e72a.js.map",
   "static/media/index.css": "/Spotify_TopTen/static/media/roboto-latin-900italic.bc833e72.woff",
-  "static/css/main.2778f77f.chunk.css.map": "/Spotify_TopTen/static/css/main.2778f77f.chunk.css.map",
   "static/css/1.1e02f483.chunk.css.map": "/Spotify_TopTen/static/css/1.1e02f483.chunk.css.map",
+  "static/css/main.2778f77f.chunk.css.map": "/Spotify_TopTen/static/css/main.2778f77f.chunk.css.map",
   "index.html": "/Spotify_TopTen/index.html",
-  "precache-manifest.1f0883b36dfeb950ad603bc1fbcbcf17.js": "/Spotify_TopTen/precache-manifest.1f0883b36dfeb950ad603bc1fbcbcf17.js",
+  "precache-manifest.7d0aba8e3121e7b2d6cbc5fde319ed3a.js": "/Spotify_TopTen/precache-manifest.7d0aba8e3121e7b2d6cbc5fde319ed3a.js",
   "service-worker.js": "/Spotify_TopTen/service-worker.js"
 }

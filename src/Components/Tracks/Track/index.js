@@ -6,8 +6,8 @@ import Typography from "@material-ui/core/Typography/Typography";
 import CardMedia from "@material-ui/core/CardMedia/CardMedia";
 import Card from "@material-ui/core/Card/Card";
 import Slide from '@material-ui/core/Slide';
-import Player from "../../Player";
 import Fab from "@material-ui/core/Fab/Fab";
+import Player from "../../Player";
 
 
 const styles = theme => ({
@@ -106,7 +106,9 @@ class Track extends Component {
 						</CardContent>
 						{
 							track.preview_url ?
-								<Player url={ track.preview_url } /> :
+								<Player url={ track.preview_url }
+												trackInfo={ { ...track } }
+								/> :
 								<Fab
 									variant="extended"
 									size="medium"

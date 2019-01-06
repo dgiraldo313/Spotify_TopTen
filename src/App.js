@@ -156,7 +156,6 @@ class App extends Component {
 				       :
 				       <React.Fragment>
 					       <LinearProgress />
-					       <h1>Loading...</h1>
 				       </React.Fragment>
 		       }
 			    </React.Fragment>

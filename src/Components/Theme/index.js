@@ -9,7 +9,7 @@ const SpotifyTheme = createMuiTheme({
 		secondary: {
 			main: "#191414",
 		}
-	}
+	},
 });
 
 export default SpotifyTheme

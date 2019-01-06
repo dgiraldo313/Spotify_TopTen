@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
-import IconButton from "@material-ui/core/IconButton";
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import PauseIcon from '@material-ui/icons/Pause';
-import Tooltip from '@material-ui/core/Tooltip';
+import PlayButton from "../PlayButton";
+import { PlayerConsumer } from '../../Context'
 
 import { withStyles } from '@material-ui/core/styles';
+
 
 
 const styles = theme => ({
@@ -15,9 +14,6 @@ const styles = theme => ({
 		justifyContent: 'center',
 		width: '100%',
 		padding: '10px'
-	},
-	playIcon: {
-		border: '1px solid #fff'
 	},
 	player: {
 		width: '0!important',
@@ -32,43 +28,71 @@ class Player extends Component {
 		super(props)
 
 		this.state = {
-			isPlaying: false
+			is_playing: false
 		}
 
+		this.playerRef = this
+
 		this.togglePlay = this.togglePlay.bind(this)
+		this.pause = this.pause.bind(this)
+		this.play = this.play.bind(this)
 	}
 
 	togglePlay() {
 		this.setState( ( prevState ) => {
-			return({
-				isPlaying: !prevState.isPlaying
-			})
+			const is_playing = !prevState.is_playing
+			const properties = {
+				is_track_playing : is_playing,
+				player_ref : this.playerRef,
+				track_info: this.props.trackInfo
+			}
+
+			// This is causing a warning because its triggering another set state
+			this.playerContext.updateCurrentPlayer( { ...properties })
+
+			// Update local state of player
+			return({ is_playing })
 		})
 	}
+
+	pause() {
+		this.setState({
+			is_playing: false
+		})
+	}
+
+	play() {
+		this.setState({
+			is_playing: true
+		})
+	}
+
 
 	render() {
 		const { classes } = this.props
 		return (
-			<div className={classes.controls}>
-				<Tooltip title="Preview Only" placement="right">
-					<IconButton aria-label={ this.state.isPlaying ? "Pause" : "Play" }
-					            className={ classes.playIcon }
-											onClick={ this.togglePlay }
-					>
-						{
-							this.state.isPlaying ?
-								<PauseIcon/>
-								: <PlayArrowIcon />
-						}
-					</IconButton>
-				</Tooltip>
-				<ReactPlayer url={ this.props.url }
-				             config={ { file: { forceAudio: true } } }
-				             playing={ this.state.isPlaying }
-				             className={ classes.player }
+			<PlayerConsumer>
+				{
+					playerContext => {
 
-				/>
-			</div>
+						this.playerContext = playerContext
+
+						return (
+							<div className={classes.controls} >
+								<PlayButton isPlaying={ this.state.is_playing}
+														onClick={ this.togglePlay }
+								/>
+								<ReactPlayer url={ this.props.url }
+								             config={ { file: { forceAudio: true } } }
+								             playing={ this.state.is_playing }
+								             className={ classes.player }
+								             onEnded={ this.togglePlay }
+								/>
+							</div>
+						)
+					}
+				}
+			</PlayerConsumer>
 		)
 	}
 }
